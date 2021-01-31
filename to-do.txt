@@ -1,0 +1,81 @@
+ПЛАН УРОКОВ
+
+1. УРОК. Модули. Прослушка отправки формы
+
+1) Создаем файлы под каждый модуль
+2) В контроллер передаем модель и шаблон
+3) В контроллере обрабатываем submit формы и запускаем ф-ю ctrlAddItem()
+
+2. УРОК. Получение данных из формы
+
+1) Переносим селекторы в VIEW контроллер, возвращаем их оттуда
+2) В контроллере получаем селекторы и записываем в переменную DOM
+3) Во view создаем и возвращаем функцию getInput для сбора и передачи данных с формы
+4) В контроллере в ф-ии ctrlAddItem обращаемся к uiCtrl.getInput(); и получаем все данные из формы
+
+3. УРОК. Скрипт для тестовых данных
+
+1) Пишем модуль для подстановки тестовых данных в форму, чтобы не заоплнять ее каждый раз вручную для тестирования
+
+4. УРОК. Правки контроллера. Прослушка событий в отдельной функции
+
+1) В контроллере создаем отдельную функцию setupEventListeners по прослушке событий и запуску других функций
+2) Возвращаем ее через return как метод init и далее запускаем его от контроллера
+3) Запускаем controller.init();
+
+5. УРОК. Структура данных в модели
+
+1) Создали структуру данных в модели
+2) объект data под данные приложения
+3) функции конструкторы под создание раходов и доходов
+
+6. УРОК. Добавление записей в модель
+
+1) В модели создаем ф-ю для создания новых "записей" addItem()
+2) Она заполняет нашу структуру данных, расходом или доходом
+3) По type определяем тип записи +/-, рассчитываем ID
+4) В контроллере делаем пункт 2, добавляем полученные данные из input в модель
+
+7. УРОК. Вывод записей в разметку
+
+1) Начинаем работать с отображением заисей в таблицах
+2) В UI выносим ф-ю getInput из return
+3) В UI добавляем метод который будет добавлять новую запись в разметку
+4) Вызываем этот метод в контроллере в 3-ем пункте
+5) Оборачиваю тестовые функции в модуль и ивызываю его init после добавления дагнных в контроллере
+
+8. УРОК. Очистка полей формы после ввода
+
+1) В view создание функции clearFields для очистки полей формы
+2) Запуск ф-ии clearFields в контроллере после добавления новых данных
+
+9. УРОК. Проверка на пустые поля
+
+1) Правим контроллер добавляя условие на непустые поля
+
+--------------------------------- 1-я часть готова! ------------------------------------
+1) work with controller and model. calculte persentage of incomes and expenses
+   *make a template for updateBudget() function in controller
+   *put this function's return into insertUI method
+   *make function calculateBudget() to calculate incomes,expenses, sum, persentage and put all into data object
+   *make calculateTotal to return sums for expenses and incomes
+   *in calculateBudget() calculate budget and % and put it all to data object
+
+2) renew budget in UI 
+   *find selectors in index.html to renew
+   *budgetCtrl.getBudget() to return object with the budget in the model
+   *start getBudget() in controller and get object with budget
+   *start UICtrl.UpdateBudget() in controller to renew budget data 
+
+3) 
+   *create budgetTable in DomStrings
+   *listen for click on budgetTable and execute function ctrlDeleteItem
+   *in ctrlDeleteItem() that clicked was on the button and inside it find id of <li></li> in which it is placed
+   *split gotten id for type and id number
+4) 
+   *in controller create function deleteItem(type,id) and describe it in the model
+   *in controller when we get id we should make it integer
+   *in model we find index through id to delete an item in the array
+   *delete item with splice in model
+   *launch in controller uiCtrl.deleteListItem(id) and leave it in template
+   *in the end we need to UpdateBudget();
